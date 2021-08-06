@@ -7,8 +7,7 @@ export const Stat = () => {
   const [isOpened, setOpened] = useState(false)
   const [isLoading, setLoading] = useState(false)
   const ws = useRef(null)
-  const stat = useRef(null)
-  stat.current = new Statistic()
+  const stat = useRef(new Statistic())
   const onWsOpened = once(() => setLoading(false))
 
   const handleStart = () => {
@@ -28,7 +27,6 @@ export const Stat = () => {
   }
 
   const handleCalcStatistic = () => {
-    console.log(stat.current.size)
     const start = Date.now()
     const size = stat.current.size
     const ar = [...stat.current.data.entries()]
